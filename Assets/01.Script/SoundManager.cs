@@ -12,13 +12,13 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    [Header("--------------BackGroundAudio--------------")]
+    [Header("--------------Audios--------------")]
     [SerializeField] AudioClip[] music;
 
     [SerializeField]
     private AudioSource bgmAudioPlayer;
     [SerializeField]
-    private AudioSource vfxAudioPlayer;
+    private AudioSource sfxAudioPlayer;
 
     private Dictionary<string, AudioClip> audioDic = new Dictionary<string, AudioClip>();
 
@@ -55,7 +55,7 @@ public class SoundManager : MonoBehaviour
         }
         if (soundType == ISOund.SFX)
         {
-            AudioSource soundPlayer = Instantiate(vfxAudioPlayer);
+            AudioSource soundPlayer = Instantiate(sfxAudioPlayer);
             soundPlayer.clip = audioDic[mainClip];
             soundPlayer.Play();
             StartCoroutine(SoundEnd(soundPlayer));
